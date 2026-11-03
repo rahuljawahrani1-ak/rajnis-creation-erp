@@ -13,15 +13,6 @@ const INITIAL_SUPPLIERS = [];
 const INITIAL_VERIFIED_INVOICES = [];
 const INITIAL_PENDING_QUEUE = [];
 const INITIAL_PAYMENTS = [];
-const INITIAL_SUPPLIERS = [];
-  
-
-const INITIAL_VERIFIED_INVOICES = []
-  
-const INITIAL_PENDING_QUEUE = []
- 
-
-const INITIAL_PAYMENTS = []
   
 export default function App() {
   const [activeTab, setActiveTab] = useState('DASHBOARD');
