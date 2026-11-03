@@ -15,10 +15,7 @@ export default function App() {
   const [selectedFY, setSelectedFY] = useState('2026-2027');
 
   // Core Data States (Initialized empty for a fresh start)
-  const [suppliers, setSuppliers] = useState([
-    { id: 'SUP-001', name: 'Royal Silk House', gstin: '08AABCR1234F1Z1', phone: '9829012345', category: 'Fabrics' },
-    { id: 'SUP-002', name: 'ABC Fabrics (Surat Unit-2)', gstin: '24AABCA1234F1Z5', phone: '9829054321', category: 'Cotton & Mills' }
-  ]);
+  const [suppliers, setSuppliers] = useState([]);
 
   const [invoices, setInvoices] = useState<any[]>([]);
   const [pendingQueue, setPendingQueue] = useState<any[]>([]);
