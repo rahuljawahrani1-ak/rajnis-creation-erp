@@ -1,123 +1,13 @@
-import React, { useState, useMemo } from 'react';
+const INITIAL_SUPPLIERS = [];
+  
 
-const formatINR = (amount) => {
-  const num = Number(amount || 0);
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 2,
-  }).format(num);
-};
+const INITIAL_VERIFIED_INVOICES = []
+  
+const INITIAL_PENDING_QUEUE = []
+ 
 
-const INITIAL_SUPPLIERS = [
-  {
-    id: 'SUP-001',
-    supplierName: 'ABC Fabrics Pvt Ltd',
-    gstin: '24AABCA1234F1Z5',
-    address: 'Ring Road, Surat',
-    state: 'Gujarat',
-    stateCode: '24',
-    phone: '+91 98250 11223',
-    openingBalance: 25000,
-    creditNotes: 5000,
-    debitNotes: 0,
-  },
-  {
-    id: 'SUP-002',
-    supplierName: 'XYZ Royal Brocades & Zari',
-    gstin: '09AAACX9876B1Z2',
-    address: 'Chowk, Varanasi',
-    state: 'Uttar Pradesh',
-    stateCode: '09',
-    phone: '+91 94152 88990',
-    openingBalance: 0,
-    creditNotes: 0,
-    debitNotes: 2000,
-  },
-  {
-    id: 'SUP-003',
-    supplierName: 'Marwar Heritage Safa & Sherwani House',
-    gstin: '08AADCM4455E1Z8',
-    address: 'Sardarpura, Jodhpur',
-    state: 'Rajasthan',
-    stateCode: '08',
-    phone: '+91 98290 44556',
-    openingBalance: 15000,
-    creditNotes: 0,
-    debitNotes: 0,
-  },
-];
-
-const INITIAL_VERIFIED_INVOICES = [
-  {
-    id: 'INV-101',
-    supplierId: 'SUP-001',
-    supplierName: 'ABC Fabrics Pvt Ltd',
-    gstin: '24AABCA1234F1Z5',
-    invoiceNumber: 'ABC/26-27/0891',
-    invoiceDate: '2026-10-05',
-    dueDate: '2026-11-04',
-    financialYear: '2026-2027',
-    taxableAmount: 100000,
-    cgst: 0,
-    sgst: 0,
-    igst: 5000,
-    finalAmount: 105000,
-    amountPaid: 50000,
-    status: 'VERIFIED',
-  },
-  {
-    id: 'INV-102',
-    supplierId: 'SUP-001',
-    supplierName: 'ABC Fabrics Pvt Ltd',
-    gstin: '24AABCA1234F1Z5',
-    invoiceNumber: 'ABC/26-27/0944',
-    invoiceDate: '2026-10-18',
-    dueDate: '2026-11-17',
-    financialYear: '2026-2027',
-    taxableAmount: 90476.19,
-    cgst: 0,
-    sgst: 0,
-    igst: 4523.81,
-    finalAmount: 95000,
-    amountPaid: 0,
-    status: 'VERIFIED',
-  },
-];
-
-const INITIAL_PENDING_QUEUE = [
-  {
-    id: 'STG-201',
-    supplierName: 'ABC Fabrics (Surat Unit-2)',
-    gstin: '24AABCA1234F1Z5',
-    invoiceNumber: 'ABC/26-27/1012',
-    invoiceDate: '2026-11-01',
-    dueDate: '2026-12-01',
-    financialYear: '2026-2027',
-    taxableAmount: 80000,
-    cgst: 0,
-    sgst: 0,
-    igst: 4000,
-    finalAmount: 84000,
-    ocrConfidence: 98.4,
-    uncertainFields: [],
-    isDuplicate: false,
-  },
-];
-
-const INITIAL_PAYMENTS = [
-  {
-    id: 'PAY-501',
-    supplierId: 'SUP-001',
-    paymentDate: '2026-10-12',
-    financialYear: '2026-2027',
-    amount: 50000,
-    mode: 'NEFT',
-    reference: 'HDFCN52026101299401',
-    remarks: 'Part payment',
-  },
-];
-
+const INITIAL_PAYMENTS = []
+  
 export default function App() {
   const [activeTab, setActiveTab] = useState('DASHBOARD');
   const [globalSearch, setGlobalSearch] = useState('');
