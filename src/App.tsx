@@ -1,4 +1,18 @@
 import React, { useState, useMemo } from 'react';
+
+const formatINR = (amount) => {
+  const num = Number(amount || 0);
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 2,
+  }).format(num);
+};
+
+const INITIAL_SUPPLIERS = [];
+const INITIAL_VERIFIED_INVOICES = [];
+const INITIAL_PENDING_QUEUE = [];
+const INITIAL_PAYMENTS = [];
 const INITIAL_SUPPLIERS = [];
   
 
